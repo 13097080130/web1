@@ -1,6 +1,6 @@
 <template>
     <div id="bookWrapper">
-        我是图书信息
+        图书
     </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style >
     
 </style>

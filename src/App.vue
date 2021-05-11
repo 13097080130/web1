@@ -1,57 +1,55 @@
 <template>
   <div id="app">
-    <!-- 3，使用子组件 -->
     <el-container>
-      <el-header id="herderBook">
-        <Herder/>
+      <el-header id="headerBook">
+        <Header/>
       </el-header>
-      <el-main id="mainBook">
-        <!-- <login/> -->
+    <el-main id="mainBook">
         <router-view></router-view>
-      </el-main>
-      <el-footer id="footerBook">
-        <Footer/>
-      </el-footer>
-    </el-container>  
+    </el-main>
+    <el-footer id="footBook">
+      <Footer/>
+    </el-footer >
+    </el-container>
+    
   </div>
 </template>
 
 <script>
-// 1，导入herder子组件
-import Herder from "./components/Header.vue"
-import login from "./components/login.vue"
-import Footer from "./components/Footer"
-// 2，注册 子组件
+ import Footer from "./components/Footer"
+ import Header from "./components/Header"
+ 
 export default {
+
   name: 'App',
   components: {
-    Herder,login,Footer
+    Header,
+    Footer,
   }
 }
 </script>
 
 <style>
-*{
-  margin: 0;
-  padding: 0;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
-  /* margin-top: 60px; */
+  color: #3d3e86;
+  margin-top: 0px;
 }
-#herderBook{
-  background-color:#244152;
+*{
+  margin: 0;
+  padding: 0;
+}
+#headerBook{
+  background-color: #244152;
 }
 #mainBook{
+  height: 70vh;
   /* background-color: blue; */
-  height: 500px;
 }
-#footerBook{
-  /* background-color: green; */
-  height: 150px  !important;
+#footBook{
+  height: 15px;
+  /* background-color: blanchedalmond; */
 }
 </style>

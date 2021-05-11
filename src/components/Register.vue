@@ -1,73 +1,67 @@
 <template>
-    <div id="loginWrapper">
-        <div id="loginConter">
-            <el-card class="box-card">
-                <div slot="header" class="clearfix">
-                <span>用户注册</span>
-                <el-button style="float: right; padding: 3px 0" type="text">忘记密码</el-button>
-                </div>
-                <div id="loginContmentbody">
-                    <el-input id="newusername" v-model="newuser.newusername"  clearable></el-input>
-                    <el-input id="newpassword" v-model="newuser.newpassword" show-password clearable></el-input>
-                </div>
-                <div id="loginSubmit">
-                    <el-button id="SystemSubmit" @click="registerSystem">注册</el-button>
-                </div>
-            </el-card>  
-        </div>
+  <div id="registerWrapper">
+    <div id="registerContent">
+        <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>用户注册</span>
+      </div>
+      <div id="registerContmentbody">
+          <el-input id="newUsername" v-model="newUser.newUsername" class="inputWrapper" clearable></el-input>
+          <el-input id="newPassword" v-model="newUser.newPassword" class="inputWrapper" show-password clearable></el-input>
+          
+      </div>
+      <div id="registerConrmentSubmit">
+          <el-button id="systemSubmit" @click="registerSystem">注册</el-button>
+      </div>
+    </el-card>
     </div>
+  </div>
 </template>
 
 <script>
 import Axios from 'axios'
 export default {
-    name:"register",
-    data(){
-        return{
-            newuser:{
-                newusername:"",
-                newpassword:""
-            }
-        }
-    },
-    methods:{
-        registerSystem(){
-            Axios.get('http://localhost:3000/register',{
-                params:this.newuser
-            }).then(function(response){
-                alert(response.data)
-            })
-        }
+  
+  name: "register",
+  data() {
+    return {
+      newUser:{
+          newUsername:"",
+          newPassword:""
+      }
+    };
+  },
+  methods:{
+    registerSystem(){
+      Axios.post('http://localhost:3000/register',{
+        params:this.newUser
+      }).then(function(response){
+        alert(response.data)
+      })
     }
-}
+  }
+};
 </script>
-
 <style>
-
-#loginWrapper{
-    height: 100%;
-    /* background-color: antiquewhite; */
-}  
-#loginConter{
-    width: 400px;
-    margin: auto;
-    padding: 100px;
-
-} 
-/* input中间空隙 */
-#loginContmentbody>*{
-    margin: 5px;
+#registerWrapper {
+  height: 100%;
+  /* background-color: bisque; */
 }
-
-#loginSubmit{
-    display: block;
+#registerContent{
+    margin: 0 auto;
+    padding-top: 100px;
+    width: 400px;
+    
+}
+.inputWrapper{
+    margin-top: 20px;
+}
+#registerConrmentSubmit{
     text-align: center;
 }
-#SystemSubmit{
-    display: block;
-    margin: auto;
+#systemSubmit{
+  margin-top: 20px;
     background-color: #0a9588;
-    color: white;
-    border-color: #0a9588;
-} 
+    color: aliceblue;
+}
 </style>

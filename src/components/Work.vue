@@ -1,6 +1,6 @@
 <template>
-    <div id="wordWrapper">
-        中心
+    <div id="workWrapper">
+        信息
     </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style >
     
 </style>
