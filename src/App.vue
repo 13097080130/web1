@@ -1,55 +1,64 @@
 <template>
   <div id="app">
+    <!-- 3、使用子组件 -->
     <el-container>
       <el-header id="headerBook">
         <Header/>
       </el-header>
-    <el-main id="mainBook">
-        <router-view></router-view>
-    </el-main>
-    <el-footer id="footBook">
-      <Footer/>
-    </el-footer >
+      <el-main id="mainBook">          
+        <router-view>
+        为的
+        </router-view>
+      </el-main>
+      <el-footer id="footerBook">
+        <Footer/>
+      </el-footer>
     </el-container>
     
+
   </div>
 </template>
 
 <script>
- import Footer from "./components/Footer"
- import Header from "./components/Header"
- 
+//1、导入header 子组件
+import Header from "./components/Header.vue"
+import Login from "./components/Login.vue"
+import Footer from "./components/Footer.vue"
+//2、注册  子组件
 export default {
-
   name: 'App',
   components: {
-    Header,
-    Footer,
+  Header,
+  Login,
+  Footer
   }
 }
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #3d3e86;
-  margin-top: 0px;
-}
-*{
-  margin: 0;
-  padding: 0;
+  /* text-align: center; */
+  color: #2c3e50;
+  /* margin-top: 60px; */
 }
 #headerBook{
   background-color: #244152;
 }
 #mainBook{
-  height: 70vh;
   /* background-color: blue; */
+  height: 500px;
 }
-#footBook{
-  height: 15px;
-  /* background-color: blanchedalmond; */
+#footerBook{
+  /* background-color: green; */
+  height: 150px  !important;
 }
 </style>
+
+
