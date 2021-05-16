@@ -1,74 +1,67 @@
 <template>
   <div id="registerWrapper">
     <div id="registerContent">
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>用户注册</span>
-        </div>
-        <div id="registerContentBody">
-            <el-input id="newusername" v-model="newUser.newusername" clearable></el-input>
-            <el-input id="newpassword" v-model="newUser.newpassword" show-password clearable></el-input>
-        </div>
-        <div id="registerSubmit">
-            <el-button id="systemSubmit" @click="registerSystem">注册</el-button>
-        </div>
-      </el-card>
+        <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>用户注册</span>
+      </div>
+      <div id="registerContmentbody">
+          <el-input id="newUsername" v-model="newUser.newUsername" class="inputWrapper" clearable></el-input>
+          <el-input id="newPassword" v-model="newUser.newPassword" class="inputWrapper" show-password clearable></el-input>
+          
+      </div>
+      <div id="registerConrmentSubmit">
+          <el-button id="systemSubmit" @click="registerSystem">注册</el-button>
+      </div>
+    </el-card>
     </div>
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
-const url = 'http://localhost:3000'
 export default {
-  name:"register",
-    data(){
-        return {
-            newUser:{
-                newusername:"",
-                newpassword:""
-            }
-        }
-    },
-    methods:{
-      // CORS 
-      registerSystem(){
-        //链式调用
-        // Axios.get('http://localhost:3000/register',{
-        //   params:this.newUser
-        // }).then(function(reponse){
-        //   alert(reponse.data)
-        // });
-        Axios.post(url+'/register',{
-          params:this.newUser
-        }).then(function(response){
-          alert(response.data)
-        })
+  
+  name: "register",
+  data() {
+    return {
+      newUser:{
+          newUsername:"",
+          newPassword:""
       }
+    };
+  },
+  methods:{
+    registerSystem(){
+      Axios.post('http://localhost:3000/register',{
+        params:this.newUser
+      }).then(function(response){
+        alert(response.data.state+"\n"+response.data.message)
+      })
     }
+  }
 };
 </script>
-
-<style >
-
+<style>
 #registerWrapper {
-  /* background-color: purple; */
   height: 100%;
+  /* background-color: bisque; */
 }
 #registerContent{
-    width: 400px;
-    margin:0 auto;
+    margin: 0 auto;
     padding-top: 100px;
+    width: 400px;
+    
+}
+.inputWrapper{
+    margin-top: 20px;
+}
+#registerConrmentSubmit{
+    text-align: center;
 }
 #systemSubmit{
-    display: block;
-    margin: 0 auto;
+  margin-top: 20px;
     background-color: #0a9588;
-    color:white;
-    border-color: #0a9588;
-}
-#newpassword{
-  margin-top:5px;
-  margin-bottom: 8px;
+    color: aliceblue;
 }
 </style>
